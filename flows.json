@@ -1,0 +1,994 @@
+[
+    {
+        "id": "2b074b3a.632fb4",
+        "type": "tab",
+        "label": "test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6ad7c930.1a06b8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Chill Detector",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e1a92896.8be2b8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo/bath'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Badställen  Karta</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"40px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 600px; overflow:hidden; max-height:600px;\">\n                                            <iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1L98foG-CqAUDTY4PxEw6K1P7vpbD7cP2\" width=\"800\" height=\"600\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 850,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bba84aa8.51ba88",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31eb36d8.a3084a",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 430,
+        "y": 980,
+        "wires": [
+            [
+                "bba84aa8.51ba88"
+            ]
+        ]
+    },
+    {
+        "id": "5d0603af.2d6fec",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Brantevik Badställen Karta ",
+        "output": "str",
+        "x": 280,
+        "y": 980,
+        "wires": [
+            [
+                "31eb36d8.a3084a"
+            ]
+        ]
+    },
+    {
+        "id": "543d8672.4ccd48",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/bath/map",
+        "url": "/todo/bath/map",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 980,
+        "wires": [
+            [
+                "5d0603af.2d6fec"
+            ]
+        ]
+    },
+    {
+        "id": "365d2074.06e0a",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Cykling</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\">\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vRwtuDnstbtFl8my3LIzjcw9kqXABFz-USRFK_BP75ntVfn5JXMAYHy4HKop2yAzATLWI22K0aEbiIS/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'></div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"/todo/cycle/tur1\">Gislöv tur</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"/todo/cycle/tur2\">Gladsax tur</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                </tr>\n                           </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 850,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "583d5d9.c3c7da4",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d873cbd.461ab4",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 430,
+        "y": 1060,
+        "wires": [
+            [
+                "583d5d9.c3c7da4"
+            ]
+        ]
+    },
+    {
+        "id": "20f7d092.c524",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Brantevik Cykling",
+        "output": "str",
+        "x": 280,
+        "y": 1060,
+        "wires": [
+            [
+                "6d873cbd.461ab4"
+            ]
+        ]
+    },
+    {
+        "id": "21a94ada.915736",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/cycle",
+        "url": "/todo/cycle",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 1060,
+        "wires": [
+            [
+                "20f7d092.c524"
+            ]
+        ]
+    },
+    {
+        "id": "5f628e6a.156d1",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo/cycle'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Gislöv tur</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 600px; overflow:hidden; max-height:600px;\">\n                                            <iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1N6YyckM81IVvZWOuFlek9zOmmbP0r0WT\" width=\"800\" height=\"600\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 850,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2993082b.9a5e38",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5cecf06.89159",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 430,
+        "y": 1120,
+        "wires": [
+            [
+                "2993082b.9a5e38"
+            ]
+        ]
+    },
+    {
+        "id": "1b2f758f.ca89ea",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Gislöv tur",
+        "output": "str",
+        "x": 280,
+        "y": 1120,
+        "wires": [
+            [
+                "f5cecf06.89159"
+            ]
+        ]
+    },
+    {
+        "id": "dcdd7264.9ca1c",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/cycle/tur1",
+        "url": "/todo/cycle/tur1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 1120,
+        "wires": [
+            [
+                "1b2f758f.ca89ea"
+            ]
+        ]
+    },
+    {
+        "id": "7485eaed.7e2114",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo/cycle'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Gladsax tur</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 600px; overflow:hidden; max-height:600px;\">\n                                            <iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1-ryEeDcDlovvB-1UWU5VLqblUHj9kfzR\" width=\"800\" height=\"600\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 850,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a68f1d0b.9b02",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "851dd4ae.a976e8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 430,
+        "y": 1180,
+        "wires": [
+            [
+                "a68f1d0b.9b02"
+            ]
+        ]
+    },
+    {
+        "id": "9eac337a.df2a3",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Gladsax tur",
+        "output": "str",
+        "x": 280,
+        "y": 1180,
+        "wires": [
+            [
+                "851dd4ae.a976e8"
+            ]
+        ]
+    },
+    {
+        "id": "f11f87d5.6bbc68",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/cycle/tur2",
+        "url": "/todo/cycle/tur2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 1180,
+        "wires": [
+            [
+                "9eac337a.df2a3"
+            ]
+        ]
+    },
+    {
+        "id": "1a1a676b.55eab9",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Grönet</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\">\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vSnGTWZeo7NlhnRE3ycFJgG1wItdpwLDR6vWPn-1DSjnvUBjsSUiBtv7JRvxFfkvPKUgGnu7F2JsRI6/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 850,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90f09e1a.646b1",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81980817.63d058",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 430,
+        "y": 1240,
+        "wires": [
+            [
+                "90f09e1a.646b1"
+            ]
+        ]
+    },
+    {
+        "id": "4c7220ba.e90a2",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Grönet",
+        "output": "str",
+        "x": 280,
+        "y": 1240,
+        "wires": [
+            [
+                "81980817.63d058"
+            ]
+        ]
+    },
+    {
+        "id": "b4ccd2f2.986ca",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/gronet",
+        "url": "/todo/gronet",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 1240,
+        "wires": [
+            [
+                "4c7220ba.e90a2"
+            ]
+        ]
+    },
+    {
+        "id": "b7c01454.da29c8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Segling</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\">\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vSD2c7MHATGsNaLuR08ViivdEk0GJ7WyoW5FFVvnNLlpuLzAPVJGRAO0lejQ8ayQPPtsX1xY8sYSP1N/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'></div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"/todo/sail/museum\">Sjöfartsmuseet</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                </tr>\n                           </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 850,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec093ff7.10a48",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2d6c9cee.1dc884",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 430,
+        "y": 1300,
+        "wires": [
+            [
+                "ec093ff7.10a48"
+            ]
+        ]
+    },
+    {
+        "id": "d0d22251.c8a21",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Brantevik Segling",
+        "output": "str",
+        "x": 280,
+        "y": 1300,
+        "wires": [
+            [
+                "2d6c9cee.1dc884"
+            ]
+        ]
+    },
+    {
+        "id": "2bab1d11.4568e2",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/sail",
+        "url": "/todo/sail",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 1300,
+        "wires": [
+            [
+                "d0d22251.c8a21"
+            ]
+        ]
+    },
+    {
+        "id": "2b2b204.8ab1ae",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/todo/sail'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Sjöfartsmuseet</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\">\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vRId-1Dv1tGacm12VAhCxSLBl7LHVWZkE9FgUvnr0RWFKuQN15FyyuESIr8Ovkzd93ZZdY5Sh1CucwQ/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'></div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"http://www.branteviksmuseum.se/\" target=\"_blank\">Websida</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                </tr>\n                           </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 870,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c690f46.ed348",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 600,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b73489f4.26f308",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 450,
+        "y": 1360,
+        "wires": [
+            [
+                "4c690f46.ed348"
+            ]
+        ]
+    },
+    {
+        "id": "a66b3aba.c717d8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Brantevik Sjöfartsmuseet",
+        "output": "str",
+        "x": 300,
+        "y": 1360,
+        "wires": [
+            [
+                "b73489f4.26f308"
+            ]
+        ]
+    },
+    {
+        "id": "81913d22.1b7c9",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/todo/sail/museum",
+        "url": "/todo/sail/museum",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1360,
+        "wires": [
+            [
+                "a66b3aba.c717d8"
+            ]
+        ]
+    },
+    {
+        "id": "4ead6af1.26e7a4",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-2'>\n                            </div>\n                            <div class='col-md-8'>\n                                <p class='card-title'>Vädret just nu</p>\n                             </div>\n                            <div class='col-md-2'>\n                            </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <div class='row'>\n                                <div class='col-md-12'>\n\n                                    <div style=\"height: 60vw; overflow:hidden; max-height:550px;\">\n                                        <iframe scrolling=\"no\" width=\"100%\" height=\"100%\" style=\"border:0;background: #9eb5c7;\" src=\"/brantevik-weather-widget\" allowtransparency=\"true\"></iframe>\n                                    </div>\n                               </div>\n                            </div>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-2'>\n                            </div>\n                            <div class='col-md-8'>\n                                <p class='card-title'>Nyheter</p>\n                             </div>\n                            <div class='col-md-2'>\n                            </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div id='headline1' style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\" >\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vQyeXwm2-F1pTn5FtRMZRl7l_CHhhi2W4V0qmpsteqi_meFTJRchpktSVhX4284Zp7Ax-Gm7kIteAA7/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\" ></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div id='headline2' style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\" >\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vS6AUEiT08EBNztgwkl2zG2FqGkk9KiESrL6Ih5UF_Ip1ErA2DEwWud5cOlC9lCfedxDi2PbxIFE88g/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div id='headline3' style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\" >\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vT6dGH77Hrwq0-1M4_7dXphGSUruQsQm0LV0L895oBhjFq_dpUJ9UHtikmyDkWcygzxgd6E_sijmsDj/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'></div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"/todo\">Aktiviteter</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                         <a class=\"btn btn-block card-button\" href=\"/restaurants\">Mat och dryck</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                </tr>\n                                <tr >\n                                    <td  align=\"center\" style=\"padding-top:15px;\">\n                                    </td>\n                                    <td align=\"center\" style=\"padding-top:15px;\">\n                                        <a class=\"btn btn-block card-button\" href=\"/map\">Karta</a>\n                                    </td>\n                                    <td  align=\"center\" style=\"padding-top:15px;\">\n                                    </td>\n                                    <td  align=\"center\" style=\"padding-top:15px;\">\n                                    </td>\n                                    <td align=\"center\" style=\"padding-top:15px;\">\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 910,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "60069956.3b33e8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 640,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28815a0d.2cfc66",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n        var numHeadlines = 3;\n        var headlineShowing = 1;\n        var showHeadline = 0;\n        var showHeadlineName = '';\n        var closeHeadlineName = '';\n\n        function onDocumentReady()\n        {\n            if (numHeadlines > 1)\n            {\n                for (var ih = 2; ih <= numHeadlines; ++ih)\n                {\n                    var headlineName = '#headline' + ih.toString();\n                    $(headlineName).hide();\n\n                }\n            }\n            setInterval(changeHeadline, 6000);\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n        function changeHeadline()\n        {\n            if (numHeadlines == 1) return;\n            showHeadline = headlineShowing + 1;\n            if (showHeadline > numHeadlines) showHeadline = 1;\n            \n            showHeadlineName =  '#headline' + showHeadline.toString();\n            closeHeadlineName =  '#headline' + headlineShowing.toString();\n            $(closeHeadlineName).fadeOut(1000, fadeInNewHeadLine);\n            headlineShowing = showHeadline;\n            \n        }\n        function fadeInNewHeadLine()\n        {\n            $(showHeadlineName).fadeIn(1000);\n        }\n        \n",
+        "output": "str",
+        "x": 490,
+        "y": 1600,
+        "wires": [
+            [
+                "60069956.3b33e8"
+            ]
+        ]
+    },
+    {
+        "id": "b27eebf6.3f9ad8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Mitt Brantevik",
+        "output": "str",
+        "x": 340,
+        "y": 1600,
+        "wires": [
+            [
+                "28815a0d.2cfc66"
+            ]
+        ]
+    },
+    {
+        "id": "28c13965.54ca56",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/demo",
+        "url": "/demo",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 1600,
+        "wires": [
+            [
+                "b27eebf6.3f9ad8"
+            ]
+        ]
+    },
+    {
+        "id": "5fa0eb6f.aaee94",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Mat och dryck</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 565px; overflow:hidden; max-height:565px;\">\n                                            <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vS44tLCK3PcWTSM0YzbkHlcZI0Br_VawI10K5Y4q8yV22VYhlPFYdRPmAcHRPH8Kv5xFGVK3q366rGJ/embed?start=true&loop=true&delayms=3000\" frameborder=\"0\" width=\"750\" height=\"600\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'></div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"/restaurants/bfisk\">Branteviks Fisk</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                    <td  width=\"42.5%\" align=\"center\">\n                                        <a class=\"btn btn-block card-button\" href=\"/restaurants/hornan\">Hörnan</a>\n                                    </td>\n                                    <td  width=\"5%\" align=\"center\">\n                                    </td>\n                                </tr>\n                                <tr >\n                                    <td  align=\"center\">\n                                    </td>\n                                    <td  align=\"center\" style=\"padding-top:15px;\">\n                                        <a class=\"btn btn-block card-button\" href=\"/restaurants/map\">Karta</a>\n                                    </td>\n                                    <td  align=\"center\">\n                                    </td>\n                                    <td  align=\"center\" style=\"padding-top:15px;\">\n                                    </td>\n                                    <td  align=\"center\">\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n",
+        "output": "str",
+        "x": 910,
+        "y": 1480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37bef886.a63238",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 640,
+        "y": 1480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc9dbda9.4a96c",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 490,
+        "y": 1480,
+        "wires": [
+            [
+                "37bef886.a63238"
+            ]
+        ]
+    },
+    {
+        "id": "399d3166.42c6ae",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Branteviks Mat och dryck",
+        "output": "str",
+        "x": 340,
+        "y": 1480,
+        "wires": [
+            [
+                "bc9dbda9.4a96c"
+            ]
+        ]
+    },
+    {
+        "id": "261b1347.119eec",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/restaurants",
+        "url": "/restaurants",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 1480,
+        "wires": [
+            [
+                "399d3166.42c6ae"
+            ]
+        ]
+    },
+    {
+        "id": "cf59bf40.1bc3b",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr >\n                <td  width=\"100%\" style=\"padding-top:10px;\">\n                    <div class='card'>\n                        <div class='row'>\n                            <div class='col-md-12'>\n                                <table width=\"100%\">\n                                    <tr>\n                                        <td width=\"25%\" align=\"left\" style=\"padding-left:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a class=\"btn back-button\" href='/restaurants'>tillbaka</a>\n                                        </td>\n                                        <td width=\"50%\" align=\"center\">\n                                            <span  class='card-title'>Restaurang Karta</span>\n                                        </td>\n                                        <td width=\"25%\" align=\"right\" style=\"padding-right:20px;padding-top:10px;padding-bottom:10px;\">\n                                            <a href='/'><img src=\"/img/home.png\" height=\"70px\"/></a>\n                                        </td>\n                                   </tr>\n                                </table>\n                             </div>\n                        </div>\n                        <div class='card-body' align=\"center\">\n                            <table width=\"100%\" align=\"center\">\n                                <tr >\n                                    <td  width=\"100%\" align=\"center\">\n                                        <div style=\"width: 800px; height: 600px; overflow:hidden; max-height:600px;\">\n                                            <iframe src=\"https://www.google.com/maps/d/embed?mid=128ExFR4aP0s5v8THxOPhPdli8jpTdgff\" width=\"800\" height=\"600\"></iframe>\n                                        </div>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </td>\n            </tr>\n        </table>\n    </div>\n{{{payload.mailfooter}}}\n    ",
+        "output": "str",
+        "x": 910,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd58a48b.468718",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n",
+        "output": "str",
+        "x": 640,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe395598.7274c8",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        useWebSockets(false);\n\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 490,
+        "y": 1540,
+        "wires": [
+            [
+                "fd58a48b.468718"
+            ]
+        ]
+    },
+    {
+        "id": "e55005cc.7e9a98",
+        "type": "template",
+        "z": "2b074b3a.632fb4",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Brantevik Restauranger Karta ",
+        "output": "str",
+        "x": 340,
+        "y": 1540,
+        "wires": [
+            [
+                "fe395598.7274c8"
+            ]
+        ]
+    },
+    {
+        "id": "b7fa4959.6e2eb8",
+        "type": "http in",
+        "z": "2b074b3a.632fb4",
+        "name": "/restaurants/map",
+        "url": "/restaurants/map",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 1540,
+        "wires": [
+            [
+                "e55005cc.7e9a98"
+            ]
+        ]
+    }
+]
